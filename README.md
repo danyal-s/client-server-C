@@ -5,6 +5,7 @@ This is my implementation of a client server architecture in C. The client is mu
 ### Data structure
 Array of processes
 A 'process' is a struct with the following information:
+
 ``` C
 pid_t pid
 char* name
@@ -13,9 +14,9 @@ time_t tended
 STATE state
 ```
 STATE is an enum with 3 possible values:
-on → process is running.
-off → process has been closed.
-neither → there is no process occupying this spot.
+- on → process is running.
+- off → process has been closed.
+- neither → there is no process occupying this spot.
 
 ### Threads
 The server is single threaded.
@@ -31,17 +32,17 @@ After that, it may disconnect (to later connect to another server if needed) via
 The client may also exit via the ‘exit’ command.
 
 ### Server Commands
-1 - run <path>
-2 - close <pid/name>     
-3 - close <name> all     
-4 - list    
-5 - list all     
-6 - list details     
-7 - add <numbers>     
-8 - div <numbers>     
-9 - mult <numbers>     
-10 - disconnect     
-11 - exit
+1. run <path>
+2. close <pid/name>     
+3. close <name> all     
+4. list    
+5. list all     
+6. list details     
+7. add <numbers>     
+8. div <numbers>     
+9. mult <numbers>     
+10. disconnect     
+11. exit
 
 ### How the server works
 The server forks after ‘accept()’. The parent blocks on accept for new connections, and the child continues on to serve the client.
